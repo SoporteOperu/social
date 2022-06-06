@@ -5,7 +5,7 @@
 from lxml import etree
 
 from odoo import tools
-from odoo.tests.common import HttpCase, SavepointCase, tagged
+from odoo.tests.common import HttpCase, TransactionCase, tagged
 
 
 class TestLayoutMixin(object):
@@ -13,8 +13,8 @@ class TestLayoutMixin(object):
     def _create_template(env, model, **kw):
         vals = {
             "name": "Test Preview Template",
-            "subject": "Preview ${object.name}",
-            "body_html": "<p>Hello ${object.name}</p>",
+            "subject": "Preview {{ object.name }}",
+            "body_html": '<p>Hello <t t-out="object.name"/></p>',
             "model_id": env["ir.model"]._get(model).id,
         }
         vals.update(kw)
@@ -22,7 +22,7 @@ class TestLayoutMixin(object):
 
 
 @tagged("-at_install", "post_install")
-class TestLayoutPreview(SavepointCase, TestLayoutMixin):
+class TestLayoutPreview(TransactionCase, TestLayoutMixin):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
