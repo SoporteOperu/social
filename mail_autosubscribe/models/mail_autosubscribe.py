@@ -18,7 +18,7 @@ class MailAutosubscribe(models.Model):
     ]
 
     model_id = fields.Many2one(
-        "ir.model",
+        comodel_name="ir.model",
         required=True,
         index=True,
         ondelete="cascade",

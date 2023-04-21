@@ -9,7 +9,7 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     mail_autosubscribe_ids = fields.Many2many(
-        "mail.autosubscribe",
+        comodel_name="mail.autosubscribe",
         string="Autosubscribe Models",
         column1="partner_id",
         column2="model_id",

@@ -5,3 +5,8 @@
 * `Moduon <https://www.moduon.team/>`__
 
      * Jairo Llopis
+
+* `Pesol <https://www.pesol.es>`__:
+
+  * Pedro Evaristo Gonzalez Sanchez <pedro.gonzalez@pesol.es>
+  * Jonathan Oscategui Taza <info@pesol.es>
